@@ -42,8 +42,11 @@ func Execute() error {
 
 func init() {
 	rootCmd.PersistentFlags().StringVarP(&evalLine, "eval", "e", "", "执行单条管道命令后退出")
+	rootCmd.PersistentFlags().StringVarP(&bannerStyle, "banner", "b", ui.BannerNormal,
+		"启动横幅样式: simple 简洁 | normal 普通 | cool 炫酷")
 	rootCmd.AddCommand(checkCmd, diagCmd, devCmd, secCmd, licenseCmd, versionCmd)
 	rootCmd.AddCommand(toolCmds...)
 }
 
 var evalLine string
+var bannerStyle = ui.BannerNormal

@@ -24,6 +24,11 @@ func newRegistry() *shell.Registry {
 // runShell 启动交互式 REPL。
 func runShell() error {
 	ui.InitConsole()
+	style, err := ui.ParseBannerStyle(bannerStyle)
+	if err != nil {
+		return err
+	}
+	bannerStyle = style
 	return shell.RunREPL(newRegistry(), bannerInfo)
 }
 
@@ -38,7 +43,7 @@ func runEval(line string) error {
 
 // bannerInfo 渲染启动横幅与系统摘要。
 func bannerInfo(w io.Writer) {
-	ui.Banner(w)
+	ui.Banner(w, bannerStyle)
 	hn, _ := os.Hostname()
 	ui.Field(w, "主机名", hn)
 	if m := sysinfo.CPUModel(); m != "" {

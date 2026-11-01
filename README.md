@@ -24,6 +24,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
 # 进入交互式 Shell（推荐）
 .\xsh.exe
 
+# 选择启动横幅样式：simple 简洁 | normal 普通（默认）| cool 炫酷
+.\xsh.exe -b cool
+
 # 单命令模式
 .\xsh.exe check          # 系统体检
 .\xsh.exe diag           # 故障排查向导

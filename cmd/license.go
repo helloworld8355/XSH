@@ -18,7 +18,11 @@ var versionCmd = &cobra.Command{
 	Short: "显示版本信息",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ui.InitConsole()
-		ui.Banner(os.Stdout)
+		style, err := ui.ParseBannerStyle(bannerStyle)
+		if err != nil {
+			return err
+		}
+		ui.Banner(os.Stdout, style)
 		ui.Field(os.Stdout, "版本", ui.Version)
 		ui.Field(os.Stdout, "Go", runtime.Version())
 		ui.Field(os.Stdout, "平台", runtime.GOOS+"/"+runtime.GOARCH)
