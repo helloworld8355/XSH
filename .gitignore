@@ -1,0 +1,15 @@
+# 构建产物
+xsh.exe
+xsh
+*.exe
+*.out
+
+# 签发密钥与授权（绝不入库）
+secret/
+*.license
+/license
+
+# 本地开发
+.idea/
+.vscode/
+*.log

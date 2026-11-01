@@ -1,0 +1,22 @@
+{
+  "0x1E": {"name": "KMODE_EXCEPTION_NOT_HANDLED", "desc": "内核模式程序产生了非法指令或异常", "advice": "多为驱动缺陷；回忆蓝屏前新装的驱动/软件并回滚或更新"},
+  "0x24": {"name": "NTFS_FILE_SYSTEM", "desc": "NTFS 文件系统驱动发现问题", "advice": "运行 chkdsk /f 检查磁盘；检查磁盘健康（xsh diag disk）"},
+  "0x1A": {"name": "MEMORY_MANAGEMENT", "desc": "内存管理发生严重错误", "advice": "运行 Windows 内存诊断；若超频请恢复默认频率"},
+  "0x3B": {"name": "SYSTEM_SERVICE_EXCEPTION", "advice": "更新显卡驱动与系统补丁；检查杀毒软件冲突", "desc": "系统服务执行时发生异常"},
+  "0x44": {"name": "MULTIPLE_IRP_COMPLETE_REQUESTS", "desc": "多个请求同时完成同一 IRP", "advice": "更新存储/网络驱动"},
+  "0x50": {"name": "PAGE_FAULT_IN_NONPAGED_AREA", "desc": "引用了无效的内存地址", "advice": "运行内存诊断；检查新装内存条是否兼容"},
+  "0x7B": {"name": "INACCESSIBLE_BOOT_DEVICE", "desc": "系统启动时无法访问启动盘", "advice": "检查 BIOS 中磁盘控制器模式（AHCI/RAID）是否被更改；恢复最近驱动更改"},
+  "0x7E": {"name": "SYSTEM_THREAD_EXCEPTION_NOT_HANDLED", "desc": "系统线程产生未处理异常", "advice": "记录错误模块名并更新对应驱动"},
+  "0xA": {"name": "IRQL_NOT_LESS_OR_EQUAL", "desc": "内核进程访问了过高优先级的内存", "advice": "多为驱动缺陷；更新驱动，检查内存"},
+  "0xC2": {"name": "BAD_POOL_CALLER", "desc": "内核池操作错误", "advice": "卸载最近安装的软件/驱动"},
+  "0xD1": {"name": "DRIVER_IRQL_NOT_LESS_OR_EQUAL", "desc": "驱动访问了不该访问的内存", "advice": "定位问题驱动（错误中通常含 .sys 文件名）并更新"},
+  "0xEF": {"name": "CRITICAL_PROCESS_DIED", "desc": "关键系统进程终止", "advice": "使用启动修复/安全模式排查系统文件（sfc /scannow）"},
+  "0x109": {"name": "CRITICAL_STRUCTURE_CORRUPTION", "desc": "内核关键结构被修改", "advice": "检查内核级驱动兼容性（部分反作弊/杀软驱动）"},
+  "0x116": {"name": "VIDEO_TDR_FAILURE", "desc": "显卡驱动超时未恢复", "advice": "更新/回滚显卡驱动；检查显卡散热与供电"},
+  "0x124": {"name": "WHEA_UNCORRECTABLE_ERROR", "desc": "硬件错误（CPU/总线/缓存）", "advice": "多为硬件或超频问题；恢复默认频率，检查供电与温度"},
+  "0x133": {"name": "DPC_WATCHDOG_VIOLATION", "desc": "延迟过程调用(DPC)超时", "advice": "更新存储驱动（尤其 NVMe）与固件"},
+  "0x139": {"name": "KERNEL_SECURITY_CHECK_FAILURE", "desc": "内核检测到关键数据结构损坏", "advice": "更新驱动与系统；运行 sfc /scannow 与内存诊断"},
+  "0x154": {"name": "UNEXPECTED_STORE_EXCEPTION", "desc": "存储组件异常（常见于内存压缩/SSD）", "advice": "检查 SSD 固件与健康度，更新存储驱动"},
+  "0x18": {"name": "REFERENCE_BY_POINTER", "desc": "对象引用计数错误", "advice": "更新驱动；检查第三方软件内核模块"},
+  "0x9F": {"name": "DRIVER_POWER_STATE_FAILURE", "desc": "驱动电源状态转换失败（睡眠/唤醒相关）", "advice": "更新网卡/显卡驱动与 BIOS；临时关闭快速启动"}
+}
